@@ -33,13 +33,13 @@ module.exports = (grunt) ->
     handlebars:
       compile:
         options:
-          namespace: 'WebSnap.Templates'
+          namespace: false
+          amd: true
         expand: true
         cwd: "#{__dirname}/<%= srcFolder %>/template/"
         src: ['*.hbs']
         dest: '<%= distFolder %>/template/',
         ext: '.js'
-        amd: true
 
     less:
       compile:
