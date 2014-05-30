@@ -1,8 +1,19 @@
-<div id="{{name}}-form">
-  <h1> {{message}} </h1>
-  <input id="{{name}}-email-input" class="email-input" type="text">
-  <input id="{{name}}-password-input" class="password-input" type="password">
-  <input id="{{name}}-password-match-input" class="password-match-input" type="password">
+<div class="user-form-container">
+<h1> {{message}} </h1>
+<form id="{{name}}-form">
+  <div id="{{name}}-email-form-group" class="form-group email-form-group">
+    <label for="{{name}}-email-input">Email Address</label>
+    <input id="{{name}}-email-input" class="form-control email-input" type="email">
+  </div>
+  <div id="{{name}}-password-form-group" class="form-group password-form-group">
+    <label for="{{name}}-password-input">Password</label>
+    <input id="{{name}}-password-input" class="form-control password-input" type="password">
+  </div>
+  <div id="{{name}}-password-match-form-group" class="form-group password-match-form-group">
+    <label for="{{name}}-password-match-input">Repeat Password</label>
+    <input id="{{name}}-password-match-input" class="form-control password-match-input" type="password">
+  </div>
 
-  <input id="{{name}}-submit" class="submit" type="button" value="{{message}}">
+  <button id="{{name}}-submit" class="submit btn btn-info" type="submit"> {{message}} </button>
+</form>
 </div>
