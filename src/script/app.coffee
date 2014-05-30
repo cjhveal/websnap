@@ -12,13 +12,20 @@ define [
     contentRegion: '#content-container'
 
   app.addInitializer (options) ->
-    @router = new Router(app: app)
+    app.router = new Router(app: app)
 
   app.on 'initialize:after', (options) ->
     Backbone.history?.start()
 
-  app.commands.setHandler 'showContent', (View, options) ->
+  defaultViewOptions =
+    app: app
+
+  app.commands.setHandler 'showContent', (View, args) ->
+    options = _.extend defaultViewOptions, args
     view = new View(options)
     app.contentRegion.show view
+
+  app.commands.setHandler 'navigateTo', (path) =>
+    app.router.navigate path, {trigger: true}
 
   return app
