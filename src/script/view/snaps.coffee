@@ -13,5 +13,3 @@ define [
     initialize: ->
       @collection = new SnapsCollection()
       @collection.fetch()
-
-  return SnapsView

@@ -13,7 +13,3 @@ define [
           @options.app.execute('logIn', user)
         error: (user, error) ->
           console.log error
-
-
-
-  return LoginView
