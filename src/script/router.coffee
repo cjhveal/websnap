@@ -2,15 +2,16 @@ define [
   'jquery',
   'underscore',
   'backbone',
-  'view/home'
-], ($, _, Backbone, HomeView) ->
+  'view/home',
+  'view/snaps'
+], ($, _, Backbone, HomeView, SnapsView) ->
   class Router extends Backbone.Router
     initialize: (options) ->
       @app = options.app
 
     routes:
       '': 'showHome'
-      'login': 'showLogin'
+      'snaps': 'showSnaps'
       '*default': 'default'
 
     _showContent: (View) =>
@@ -18,6 +19,9 @@ define [
 
     showHome: =>
       @_showContent HomeView
+
+    showSnaps: =>
+      @_showContent SnapsView
 
     default: =>
       console.log '???'
