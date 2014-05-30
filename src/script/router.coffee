@@ -15,6 +15,7 @@ define [
     routes:
       '': 'showHome'
       'login': 'showLogin'
+      'logout': 'logOut'
       'signup': 'showSignUp'
       'unverified': 'showUnverified'
       'snaps': 'showSnaps'
@@ -42,6 +43,10 @@ define [
 
     logIn: (user) =>
       @navigate 'snaps', {trigger: true}
+
+    logOut: (user) =>
+      Parse.User.logOut()
+      @navigate '', {trigger: true}
 
     showHome: =>
       @_showContent HomeView
