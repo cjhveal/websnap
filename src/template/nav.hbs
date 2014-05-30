@@ -11,8 +11,23 @@
     </div>
 
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-right">
-        <li class="button"><a href="#login" class="btn navbar-btn">Sign in</a></li>
+      <ul class="navbar-controls nav navbar-nav navbar-right">
+        {{#if loggedIn}}
+        <li></li>
+          <li class="button"> <form class="navbar-form" action="#send">
+            <button class="btn navbar-btn navbar-send-btn">Send Snap</button>
+          </form></li>
+          <li class="button"> <form class="navbar-form" action="#snaps">
+            <button class="btn navbar-btn navbar-snaps-btn">My Snaps</button>
+          </form></li>
+          <li class="button"> <form class="navbar-form" action="#logout">
+            <button class="btn navbar-btn navbar-logout-btn">Log Out</button>
+          </form></li>
+        {{else}}
+          <li class="button"> <form class="navbar-form" action="#login">
+            <button class="btn navbar-btn nav-login-btn">Sign In</button>
+          </form></li>
+        {{/if}}
       </div>
     </div>
   </div>

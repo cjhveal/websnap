@@ -79,10 +79,8 @@ module.exports = (grunt) ->
         expand: true
         paths: "<%= srcFolder %>/less"
         files:
-          "<%= distFolder %>/css/app.css": [
-            "<%= srcFolder %>/less/app.less",
-            "<%= srcFolder %>/less/bootstrap/bootstrap.less"
-          ]
+          "<%= distFolder %>/css/app.css": "<%= srcFolder %>/less/app.less"
+
 
     copy:
       vendor:

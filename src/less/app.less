@@ -1,21 +1,41 @@
-body {
-  padding-top: 50px;
-}
+@import 'bootstrap/bootstrap.less';
 
-#nav-container li.button a.btn {
-  margin-top: 5px;
-  padding: 8px 18px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid white;
-  color: white;
+.btn-outline(@color: white) {
+  background-color: fadeout(@color, 90%);
+  border: 2px solid @color;
+  color: @color;
   font-weight: normal;
   border-radius: 4px;
   transition: 0.05s linear;
 
   &:hover {
-    background-color: white;
+    background-color: @color;
     opacity: 1;
     color: #444;
+  }
+}
+
+body {
+  padding-top: 60px;
+}
+
+.navbar-brand {
+  margin-top: 8px;
+}
+
+form.navbar-form {
+  padding-left: 0;
+  button {
+    .btn-outline();
+    &.navbar-send-btn {
+      .btn-outline(@brand-success);
+    }
+    &.navbar-snaps-btn {
+      .btn-outline(@brand-primary);
+    }
+    &.navbar-logout-btn {
+      .btn-outline(@brand-danger);
+    }
   }
 }
 
@@ -26,7 +46,7 @@ body {
 }
 
 
-.user-form-container {
+.user-form-container{
   margin: auto;
   width: 320px;
   h1 {
@@ -40,4 +60,13 @@ body {
 
 #forgot-password-form-group, #forgot-password-match-form-group {
   display: none;
+}
+
+.btn.submit {
+  margin: 0 auto;
+  display: block;
+}
+
+#unverified-email-notice div {
+  margin: auto;
 }
