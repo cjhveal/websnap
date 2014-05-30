@@ -17,8 +17,8 @@ define [
   app.on 'initialize:after', (options) ->
     Backbone.history?.start()
 
-  app.commands.setHandler 'showContent', (View) ->
-    view = new View()
+  app.commands.setHandler 'showContent', (View, options) ->
+    view = new View(options)
     app.contentRegion.show view
 
   return app
