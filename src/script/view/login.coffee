@@ -14,8 +14,8 @@ define [
       password = @$('.password-input').val()
 
       Parse.User.logIn email, password,
-        success: =>
-          @options.app.execute('navigateTo', '#snaps')
+        success: (user) =>
+          @options.app.execute('logIn', user)
         error: (user, error) ->
           console.log error
 

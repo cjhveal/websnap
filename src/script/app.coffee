@@ -25,7 +25,7 @@ define [
     view = new View(options)
     app.contentRegion.show view
 
-  app.commands.setHandler 'navigateTo', (path) =>
-    app.router.navigate path, {trigger: true}
+  app.commands.setHandler 'logIn', (user) =>
+    app.router.logIn user
 
   return app

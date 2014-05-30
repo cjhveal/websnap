@@ -23,7 +23,10 @@ define [
         @navigate 'login', {trigger: true}
 
     _showContent: (View) =>
-      @app.commands.execute('showContent', View)
+      @app.execute('showContent', View)
+
+    logIn: (user) =>
+      @navigate 'snaps', {trigger: true}
 
     showHome: =>
       @_showContent HomeView
