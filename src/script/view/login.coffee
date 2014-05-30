@@ -1,18 +1,13 @@
 define [
-  'marionette',
-  'template/login',
+  'view/userForm',
   'parse'
-], (Marionette, template, Parse) ->
-  class LoginView extends Marionette.ItemView
-    template: template
+], (UserFormView, Parse) ->
+  class LoginView extends UserFormView
+    serializeData: ->
+      name: 'login'
+      message: 'Log In'
 
-    events:
-      'click .login-submit': 'logIn'
-
-    logIn: ->
-      email = @$('.email-input').val()
-      password = @$('.password-input').val()
-
+    onSubmit: (email, password) ->
       Parse.User.logIn email, password,
         success: (user) =>
           @options.app.execute('logIn', user)

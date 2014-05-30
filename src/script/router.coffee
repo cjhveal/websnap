@@ -3,9 +3,10 @@ define [
   'underscore',
   'backbone',
   'view/home',
+  'view/signup',
   'view/login',
   'view/snaps'
-], ($, _, Backbone, HomeView, LoginView, SnapsView) ->
+], ($, _, Backbone, HomeView, SignUpView, LoginView, SnapsView) ->
   class Router extends Backbone.Router
     initialize: (options) ->
       @app = options.app
@@ -13,11 +14,12 @@ define [
     routes:
       '': 'showHome'
       'login': 'showLogin'
+      'signup': 'showSignUp'
       'snaps': 'showSnaps'
       '*default': 'default'
 
-    requireLogin: (callback) =>
-      if Parse.User.current()
+    _requireValidUser: (callback) =>
+      if Parse.User.current()?.get('emailVerified')
         callback()
       else
         @navigate 'login', {trigger: true}
@@ -31,11 +33,14 @@ define [
     showHome: =>
       @_showContent HomeView
 
+    showSignUp: =>
+      @_showContent SignUpView
+
     showLogin: =>
       @_showContent LoginView
 
     showSnaps: =>
-      @requireLogin =>
+      @_requireValidUser =>
         @_showContent SnapsView
 
     default: =>
