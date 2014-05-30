@@ -34,16 +34,16 @@ module.exports = (grunt) ->
         tasks: []
 
       coffee:
-        files: '<%= srcFolder %>/script/*.coffee'
+        files: '<%= srcFolder %>/script/**/*.coffee'
         tasks: ['coffee:compile']
       handlebars:
-        files: '<%= srcFolder %>/template/*.hbs'
+        files: '<%= srcFolder %>/template/**/*.hbs'
         tasks: ['handlebars:compile']
       less:
-        files: '<%= srcFolder %>/less/*.less'
+        files: '<%= srcFolder %>/less/**/*.less'
         tasks: ['less:compile']
       vendor:
-        files: '/vendor/*.js'
+        files: '/vendor/**/*.js'
         tasks: ['copy:vendor']
       index:
         files: '<%= srcFolder %>/index.html'
@@ -55,7 +55,7 @@ module.exports = (grunt) ->
           sourceMap: true
         expand: true
         cwd: "#{__dirname}/<%= srcFolder %>/script/"
-        src: ['*.coffee'],
+        src: ['**/*.coffee'],
         dest: '<%= distFolder %>/script/'
         ext: '.js'
 
@@ -66,8 +66,8 @@ module.exports = (grunt) ->
           amd: true
         expand: true
         cwd: "#{__dirname}/<%= srcFolder %>/template/"
-        src: ['*.hbs']
-        dest: '<%= distFolder %>/template/'
+        src: ['**/*.hbs']
+        dest: '<%= distFolder %>/script/template/'
         ext: '.js'
 
     less:
@@ -78,7 +78,7 @@ module.exports = (grunt) ->
           dumpLineNumbers: true
         expand: true
         cwd: "#{__dirname}/<%= srcFolder %>/less"
-        src: ['*.less']
+        src: ['**/*.less']
         dest: '<%= distFolder %>/css/'
         ext: '.css'
 
@@ -86,7 +86,7 @@ module.exports = (grunt) ->
       vendor:
         expand: true
         cwd: "#{__dirname}/vendor/"
-        src: ['*.js']
+        src: ['**/*.js']
         dest: '<%= distFolder %>/script/vendor/'
       index:
         src: 'src/index.html'
