@@ -1,4 +1,5 @@
 LIVERELOAD_PORT = 35729
+SERVER_PORT = 9000
 lrSnippet = require('connect-livereload')(port: LIVERELOAD_PORT)
 lrMiddleware = (connect, options) ->
   base = String(options.base)
@@ -21,7 +22,7 @@ module.exports = (grunt) ->
     connect:
       preview:
         options:
-          port: 9000
+          port: SERVER_PORT
           base: 'dist/'
           middleware: lrMiddleware
 
