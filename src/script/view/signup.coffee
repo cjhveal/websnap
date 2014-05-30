@@ -18,5 +18,6 @@ define [
 
       user.signUp null,
         success: (user) ->
+          @options.app.execute('signUp', user)
         error: (user, error) ->
           console.log error

@@ -25,6 +25,9 @@ define [
     view = new View(options)
     app.contentRegion.show view
 
+  app.commands.setHandler 'signUp', (user) =>
+    app.router.signIn user
+
   app.commands.setHandler 'logIn', (user) =>
     app.router.logIn user
 

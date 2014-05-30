@@ -5,8 +5,9 @@ define [
   'view/home',
   'view/signup',
   'view/login',
+  'view/unverified',
   'view/snaps'
-], ($, _, Backbone, HomeView, SignUpView, LoginView, SnapsView) ->
+], ($, _, Backbone, HomeView, SignUpView, LoginView, UnverifiedView, SnapsView) ->
   class Router extends Backbone.Router
     initialize: (options) ->
       @app = options.app
@@ -15,17 +16,29 @@ define [
       '': 'showHome'
       'login': 'showLogin'
       'signup': 'showSignUp'
+      'unverified': 'showUnverified'
       'snaps': 'showSnaps'
       '*default': 'default'
 
-    _requireValidUser: (callback) =>
-      if Parse.User.current()?.get('emailVerified')
-        callback()
+    _requireUser: (callback) ->
+      user = Parse.User.current()
+      if user?
+        callback(user)
       else
         @navigate 'login', {trigger: true}
 
-    _showContent: (View) =>
-      @app.execute('showContent', View)
+    _requireEmailVerification: (callback) =>
+      @_requireUser (user) =>
+        if user?.get('emailVerified')
+          callback()
+        else
+          @navigate 'unverified', {trigger: true}
+
+    _showContent: (View, args) =>
+      @app.execute('showContent', View, args)
+
+    signUp: (user) =>
+      @navigate 'snaps', {trigger: true}
 
     logIn: (user) =>
       @navigate 'snaps', {trigger: true}
@@ -39,8 +52,12 @@ define [
     showLogin: =>
       @_showContent LoginView
 
+    showUnverified: =>
+      @_requireUser (user) =>
+        @_showContent UnverifiedView, {model: user}
+
     showSnaps: =>
-      @_requireValidUser =>
+      @_requireEmailVerification =>
         @_showContent SnapsView
 
     default: =>
