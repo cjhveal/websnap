@@ -45,11 +45,10 @@ module.exports = (grunt) ->
       compile:
         options:
           sourceMap: true
-        expand: true,
-        flatten: true,
-        cwd: "#{__dirname}/<%= srcFolder %>/script/",
+        expand: true
+        cwd: "#{__dirname}/<%= srcFolder %>/script/"
         src: ['*.coffee'],
-        dest: '<%= distFolder %>/script/',
+        dest: '<%= distFolder %>/script/'
         ext: '.js'
 
     handlebars:
@@ -60,7 +59,7 @@ module.exports = (grunt) ->
         expand: true
         cwd: "#{__dirname}/<%= srcFolder %>/template/"
         src: ['*.hbs']
-        dest: '<%= distFolder %>/template/',
+        dest: '<%= distFolder %>/template/'
         ext: '.js'
 
     less:
