@@ -3,8 +3,9 @@ define [
   'underscore',
   'backbone',
   'marionette',
-  'router'
-], ($, _, Backbone, Marionette, Router) ->
+  'router',
+  'view/nav'
+], ($, _, Backbone, Marionette, Router, NavView) ->
   app = new Marionette.Application()
 
   app.addRegions
@@ -13,6 +14,9 @@ define [
 
   app.addInitializer (options) ->
     app.router = new Router(app: app)
+
+  app.addInitializer (options) ->
+    app.navRegion.show new NavView()
 
   app.on 'initialize:after', (options) ->
     Backbone.history?.start()
