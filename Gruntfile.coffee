@@ -7,11 +7,12 @@ lrMiddleware = (connect, options) ->
     connect.directory(base)]
 
 module.exports = (grunt) ->
-  grunt.loadNpmTasks('grunt-contrib-coffee')
+  grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-handlebars')
   grunt.loadNpmTasks('grunt-contrib-less')
-  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-copy')
 
   grunt.initConfig
     distFolder: 'dist'
@@ -40,6 +41,12 @@ module.exports = (grunt) ->
       less:
         files: '<%= srcFolder %>/less/*.less'
         tasks: ['less:compile']
+      vendor:
+        files: '/vendor/*.js'
+        tasks: ['copy:vendor']
+      index:
+        files: '<%= srcFolder %>/index.html'
+        tasks: ['copy:index']
 
     coffee:
       compile:
@@ -74,6 +81,16 @@ module.exports = (grunt) ->
         dest: '<%= distFolder %>/css/'
         ext: '.css'
 
+    copy:
+      vendor:
+        expand: true
+        cwd: "#{__dirname}/vendor/"
+        src: ['*.js']
+        dest: '<%= distFolder %>/script/vendor/'
+      index:
+        src: 'src/index.html'
+        dest: 'dist/index.html'
 
-  grunt.registerTask 'compile', ['coffee:compile', 'handlebars:compile', 'less:compile']
+
+  grunt.registerTask 'compile', ['coffee:compile', 'handlebars:compile', 'less:compile', 'copy']
   grunt.registerTask 'preview', ['connect:preview', 'watch']
