@@ -46,7 +46,7 @@ define [
 
     logOut: (user) =>
       Parse.User.logOut()
-      @navigate '', {trigger: true}
+      @showHome()
 
     showHome: =>
       @_showContent HomeView

@@ -15,9 +15,6 @@ define [
   app.addInitializer (options) ->
     app.router = new Router(app: app)
 
-  app.addInitializer (options) ->
-    app.navRegion.show new NavView()
-
   app.on 'initialize:after', (options) ->
     Backbone.history?.start()
 
@@ -25,6 +22,7 @@ define [
     app: app
 
   app.commands.setHandler 'showContent', (View, args) ->
+    app.navRegion.show new NavView()
     options = _.extend defaultViewOptions, args
     view = new View(options)
     app.contentRegion.show view
