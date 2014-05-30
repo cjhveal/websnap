@@ -24,8 +24,10 @@ require.config
     marionette: 'vendor/marionette'
     parse: 'vendor/parse'
 
+PARSE_APP_ID = 'SsjdjAhgDIweEGVGf0wwFtCyE1095ft5MKb0qiTl'
+PARSE_JS_KEY = 'dHbfIZ0QxRZrrTAkuKjoTYhtNMQFEn9Of1qitcmO'
 require ['parse'], (Parse) ->
-  Parse.initialize('your-application-id', 'your-javascript-key')
+  Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY)
 
 require ['app'], (app) ->
   app.start()
