@@ -1,7 +1,7 @@
 define [
-  'marionette',
+  'marionette'
   'template/snaps'
-  'view/snap',
+  'view/snap'
   'collection/snaps'
 ], (Marionette, template, SnapView, SnapsCollection) ->
   class SnapsView extends Marionette.CompositeView
