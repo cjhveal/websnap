@@ -7,7 +7,8 @@ define [
   'view/login',
   'view/unverified',
   'view/snaps'
-], ($, _, Backbone, HomeView, SignUpView, LoginView, UnverifiedView, SnapsView) ->
+  'view/send'
+], ($, _, Backbone, HomeView, SignUpView, LoginView, UnverifiedView, SnapsView, SendView) ->
   class Router extends Backbone.Router
     initialize: (options) ->
       @app = options.app
@@ -19,6 +20,7 @@ define [
       'signup': 'showSignUp'
       'unverified': 'showUnverified'
       'snaps': 'showSnaps'
+      'send': 'showSend'
       '*default': 'default'
 
     _requireUser: (callback) ->
@@ -62,8 +64,12 @@ define [
         @_showContent UnverifiedView, {model: user}
 
     showSnaps: =>
-      @_requireEmailVerification =>
-        @_showContent SnapsView
+      @_requireEmailVerification (user) =>
+        @_showContent(SnapsView, {user: user})
+
+    showSend: =>
+      @_requireEmailVerification (user) =>
+        @_showContent(SendView, {user: user})
 
     default: =>
       console.log '???'
