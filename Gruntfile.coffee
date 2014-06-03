@@ -88,6 +88,11 @@ module.exports = (grunt) ->
         cwd: "#{__dirname}/vendor/"
         src: ['**/*.js']
         dest: '<%= distFolder %>/script/vendor/'
+      fonts:
+        expand: true
+        cwd: "#{__dirname}/fonts/"
+        src: ['**/*']
+        dest: '<%= distFolder %>/fonts/'
       index:
         src: 'src/index.html'
         dest: 'dist/index.html'

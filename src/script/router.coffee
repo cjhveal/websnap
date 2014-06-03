@@ -48,7 +48,10 @@ define [
 
     logOut: (user) =>
       Parse.User.logOut()
-      @showHome()
+      @navigate '', {trigger: true}
+
+    onSnap: =>
+      @navigate 'snaps', {trigger: true}
 
     showHome: =>
       @_showContent HomeView
@@ -72,5 +75,5 @@ define [
         @_showContent(SendView, {user: user})
 
     default: =>
-      console.log '???'
+      console.log 'route not found!'
 

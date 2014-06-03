@@ -4,21 +4,22 @@ require.config
       exports: 'Handlebars'
     underscore:
       exports: '_'
+    bootstrap:
+      deps: ['jquery']
+      exports: '$'
     backbone:
       deps: ['underscore', 'jquery']
       exports: 'Backbone'
     marionette:
       deps: ['backbone']
       exports: 'Backbone.Marionette'
-    bootstrap:
-      deps: ['jquery']
-      exports: 'jquery'
     parse:
       deps: ['jquery', 'underscore']
       exports: 'Parse'
   paths:
     handlebars: 'vendor/handlebars'
     jquery: 'vendor/jquery',
+    bootstrap: 'vendor/bootstrap'
     underscore: 'vendor/underscore',
     backbone: 'vendor/backbone'
     marionette: 'vendor/marionette'

@@ -33,4 +33,7 @@ define [
   app.commands.setHandler 'logIn', (user) =>
     app.router.logIn user
 
+  app.commands.setHandler 'sendSnap', (snap) =>
+    app.router.onSnap()
+
   return app

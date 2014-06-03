@@ -1,8 +1,9 @@
 define [
   'marionette',
+  'bootstrap',
   'template/nav',
   'parse'
-], (Marionette, template, Parse) ->
+], (Marionette, Bootstrap, template, Parse) ->
   class NavView extends Marionette.ItemView
     template: template
 
@@ -11,3 +12,7 @@ define [
 
       loggedIn: user?
       email: user?.getEmail()
+
+    onRender: ->
+      Bootstrap('.navbar-collapse').collapse()
+

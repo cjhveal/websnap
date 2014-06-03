@@ -1,1 +1,24 @@
-<div class="snap">Snap! {{message}} </div>
+<li class="snap">
+<div class="snap-content">
+<div class="snap-header">
+<span class="snap-email">
+  {{otherUser.email}}
+</span>
+<span class="snap-icon">
+  <i></i>
+</span>
+
+<span class="snap-countdown"></span>
+</div>
+
+<div class="snap-photo-wrapper">
+  <img class="snap-photo img-responsive" src="{{photo.file.url}}"></img>
+</div>
+  <div class="snap-message">
+  {{photo.message}} </div>
+  </div>
+    <div class="snap-loading-wrapper">
+      <div class="loading-circle"></div>
+      <div class="loading-circle"></div>
+    </div>
+</li>

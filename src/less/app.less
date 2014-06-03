@@ -23,6 +23,8 @@
   }
 }
 
+
+
 body {
   padding-top: 60px;
 }
@@ -85,4 +87,93 @@ form.navbar-form {
 
 #unverified-email-notice div {
   margin: auto;
+}
+
+#content-container {
+height: 100%;
+background-color: #eeeeee;
+}
+
+.snap-loading-wrapper {
+  margin: auto;
+  position: relative;
+  height: 2em; width: 2em;
+}
+
+.loading-circle {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 0; height: 0;
+  border-radius: 50%;
+  z-index: 1;
+  box-sizing: border-box;
+  .translate(-50%, -50%);
+  .transition(all 200ms ease);
+
+  &:nth-child(1){
+    z-index: 2;
+    background: #e74c3c;
+    .animation-name(explode);
+    .animation-duration(1s);
+    .animation-timing-function(ease);
+    .animation-delay(0);
+    .animation-iteration-count(infinite);
+  }
+
+  &:nth-child(2){
+    background: #34495e;
+    .animation-name(explode);
+    .animation-duration(1s);
+    .animation-timing-function(ease);
+    .animation-delay(0.5s);
+    .animation-iteration-count(infinite);
+  }
+}
+
+@-webkit-keyframes explode {
+  0% { width: 0; height: 0; z-index: 1 }
+  50% { width: 2em; height: 2em; z-index: 1 }
+  100% { display: none; }
+}
+
+#snaps-container li {
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+    .transition(max-height 0.5s);
+    max-height: 1000px;
+    min-height: 40px;
+    overflow: hidden;
+
+  list-style: none;
+
+  .snap-content {
+    display:none;
+  }
+
+  .snap-email {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .snap-icon {
+    display: inline-block;
+    float: right;
+  }
+
+  .snap-countdown {
+    font-weight: bold;
+    float: right;
+    display: none;
+  }
+
+  img.snap-photo {
+    max-height: 0px;
+    opacity: 0;
+    .user-select(none);
+    .transition-duration(800ms);
+    .transition-property(opacity max-height);
+    &.open { max-height: 1000px; opacity: 1; }
+  }
 }
