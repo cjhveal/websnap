@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "snaps.js",
+  "sourceRoot": "../../../src/script/collection/",
+  "sources": [
+    "snaps.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,MAAA;mSAAA;;AAAA,EAAA,MAAA,CAAO,CACL,OADK,EAEL,YAFK,CAAP,EAGG,SAAC,KAAD,EAAQ,SAAR,GAAA;AACD,QAAA,eAAA;WAAM;AACJ,wCAAA,CAAA;;;;OAAA;;AAAA,gCAAA,KAAA,GAAO,SAAP,CAAA;;AAAA,gCAGA,UAAA,GAAY,SAAC,IAAD,GAAA;AACV,YAAA,IAAA;AAAA,eAAO,CAAA,uCAAe,CAAE,OAAhB,CAAA,WAAR,CADU;MAAA,CAHZ,CAAA;;6BAAA;;OAD4B,KAAK,CAAC,YADnC;EAAA,CAHH,CAAA,CAAA;AAAA"
+}

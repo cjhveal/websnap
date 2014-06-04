@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "unverified.js",
+  "sourceRoot": "../../../src/script/view/",
+  "sources": [
+    "unverified.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,MAAA;mSAAA;;AAAA,EAAA,MAAA,CAAO,CACL,YADK,EAEL,qBAFK,CAAP,EAGG,SAAC,UAAD,EAAa,QAAb,GAAA;AACD,QAAA,cAAA;WAAM;AACJ,uCAAA,CAAA;;;;OAAA;;AAAA,+BAAA,QAAA,GAAU,QAAV,CAAA;;4BAAA;;OAD2B,UAAU,CAAC,UADvC;EAAA,CAHH,CAAA,CAAA;AAAA"
+}

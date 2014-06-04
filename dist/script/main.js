@@ -1,0 +1,54 @@
+(function() {
+  var PARSE_APP_ID, PARSE_JS_KEY;
+
+  require.config({
+    shim: {
+      handlebars: {
+        exports: 'Handlebars'
+      },
+      underscore: {
+        exports: '_'
+      },
+      bootstrap: {
+        deps: ['jquery'],
+        exports: '$'
+      },
+      backbone: {
+        deps: ['underscore', 'jquery'],
+        exports: 'Backbone'
+      },
+      marionette: {
+        deps: ['backbone'],
+        exports: 'Backbone.Marionette'
+      },
+      parse: {
+        deps: ['jquery', 'underscore'],
+        exports: 'Parse'
+      }
+    },
+    paths: {
+      handlebars: 'vendor/handlebars',
+      jquery: 'vendor/jquery',
+      bootstrap: 'vendor/bootstrap',
+      underscore: 'vendor/underscore',
+      backbone: 'vendor/backbone',
+      marionette: 'vendor/marionette',
+      parse: 'vendor/parse'
+    }
+  });
+
+  PARSE_APP_ID = 'SsjdjAhgDIweEGVGf0wwFtCyE1095ft5MKb0qiTl';
+
+  PARSE_JS_KEY = 'dHbfIZ0QxRZrrTAkuKjoTYhtNMQFEn9Of1qitcmO';
+
+  require(['parse'], function(Parse) {
+    return Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
+  });
+
+  require(['app'], function(app) {
+    return app.start();
+  });
+
+}).call(this);
+
+//# sourceMappingURL=main.js.map
