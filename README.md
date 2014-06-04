@@ -16,6 +16,10 @@ Install Instructions:
 
     `npm install`
 
+4. install Grunt.js command line interface
+
+    `npm install -g grunt-cli`
+
 Running WebSNAP:
 ----------------
 
