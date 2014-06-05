@@ -15,7 +15,7 @@ define [
       'fileRegion': '#send-file-group'
 
     events:
-      'click button': 'onSubmit'
+      'submit form': 'onSubmit'
 
     initialize: (options) ->
       @user = options.user
@@ -31,7 +31,8 @@ define [
       _.all @regions, (selector, regionName) =>
         @[regionName].currentView.validate()
 
-    onSubmit: =>
+    onSubmit: (e) =>
+      e.preventDefault()
       return unless @validate()
 
       snapACL = new Parse.ACL()

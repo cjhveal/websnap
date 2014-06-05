@@ -24,7 +24,7 @@
       };
 
       SendView.prototype.events = {
-        'click button': 'onSubmit'
+        'submit form': 'onSubmit'
       };
 
       SendView.prototype.initialize = function(options) {
@@ -47,8 +47,9 @@
         })(this));
       };
 
-      SendView.prototype.onSubmit = function() {
+      SendView.prototype.onSubmit = function(e) {
         var Photo, Snap, currentUser, photo, snap, snapACL;
+        e.preventDefault();
         if (!this.validate()) {
           return;
         }

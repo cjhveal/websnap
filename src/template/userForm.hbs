@@ -1,6 +1,6 @@
 <div class="user-form-container">
 <h1> {{message}} </h1>
-<form id="{{name}}-form">
+<form id="{{name}}-form" class="user-form">
   <div id="{{name}}-email-form-group" class="form-group email-form-group">
     <label for="{{name}}-email-input">Email Address</label>
     <input id="{{name}}-email-input" class="form-control email-input" type="email">
@@ -14,6 +14,6 @@
     <input id="{{name}}-password-match-input" class="form-control password-match-input" type="password">
   </div>
 
-  <button id="{{name}}-submit" class="submit btn btn-info" type="submit"> {{message}} </button>
+  <input id="{{name}}-submit" class="submit btn btn-info" type="submit" value="{{message}}">
 </form>
 </div>

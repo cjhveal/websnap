@@ -6,11 +6,12 @@ define [
     template: template
 
     events:
-      'click .submit': 'submit'
+      'submit .user-form': 'submit'
 
     onSubmit: ->
 
-    submit: ->
+    submit: (e) ->
+      e.preventDefault()
       email = @$('.email-input').val()
       password = @$('.password-input').val()
       passwordMatch = @$('.password-match-input').val()

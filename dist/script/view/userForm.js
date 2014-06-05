@@ -14,13 +14,14 @@
       UserFormView.prototype.template = template;
 
       UserFormView.prototype.events = {
-        'click .submit': 'submit'
+        'submit .user-form': 'submit'
       };
 
       UserFormView.prototype.onSubmit = function() {};
 
-      UserFormView.prototype.submit = function() {
+      UserFormView.prototype.submit = function(e) {
         var email, password, passwordMatch;
+        e.preventDefault();
         email = this.$('.email-input').val();
         password = this.$('.password-input').val();
         passwordMatch = this.$('.password-match-input').val();
