@@ -1,7 +1,7 @@
 define [
   'marionette'
   'parse'
-  'template/unreadSnap'
+  'template/snap'
   'lib/countdown'
 ], (Marionette, Parse, template, CountDown) ->
   class UnreadSnapView extends Marionette.ItemView
